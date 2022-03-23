@@ -4,14 +4,15 @@ import "./Cart.css";
 const Cart = (props) => {
   const { cart } = props;
   // console.log(cart);
+  let quantity = 0;
   let total = 0;
   let shippingCost = 0;
   let tax = 0;
   let grandTotal = 0;
 
   for (const product of cart) {
-    // console.log(product);
-    total += product.price;
+    quantity += product.quantity;
+    total += product.price * product.quantity;
     shippingCost += product.shipping;
   }
 
