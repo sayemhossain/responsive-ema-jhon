@@ -14,12 +14,21 @@ const Shop = () => {
       .then((data) => setProducts(data));
   }, []);
 
+  const handleAddToCart = (product) => {
+    const newCart = [...cart, product];
+    setCart(newCart);
+  };
+
   return (
     <div className="container-fluid">
       <div className="shop-container">
         <div className=" product-container">
           {products.map((product) => (
-            <Product key={product.id} product={product}></Product>
+            <Product
+              key={product.id}
+              product={product}
+              handleAddToCart={() => handleAddToCart(product)}
+            ></Product>
           ))}
         </div>
         <div className="cart-container">
