@@ -16,7 +16,7 @@ const Cart = (props) => {
   }
 
   //this is for tax
-  tax = (total * 5) / 100;
+  tax = parseFloat(((total * 5) / 100).toFixed(2));
   //this is for grand total
   grandTotal = total + shippingCost + tax;
 
