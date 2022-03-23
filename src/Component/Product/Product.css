@@ -1,0 +1,32 @@
+.card {
+  width: 18rem;
+  height: 30rem;
+  border-radius: 8px;
+  font-family: "Lato";
+}
+.card img {
+  height: 250px;
+  width: 250px;
+  border-radius: 10px;
+}
+.card-text {
+  margin-top: 2rem;
+}
+.btn-cart {
+  background: #ffe0b3;
+  border: 1px solid #95a0a7;
+  border-radius: 0px 0px 8px 8px;
+  width: 100%;
+  padding: 10px;
+  transition: all 0.3s;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.btn-cart:hover {
+  background-color: orange;
+}
+@media screen and (max-width: 1100px) {
+}
+@media screen and (max-width: 600px) {
+}
