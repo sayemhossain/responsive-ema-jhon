@@ -23,7 +23,7 @@ const Cart = (props) => {
 
   return (
     <div className="p-3">
-      <p>Selected Items: {cart.length}</p>
+      <p>Selected Items: {quantity}</p>
       <p>Total Price: ${total}</p>
       <p>Total Shipping Charge: ${shippingCost}</p>
       <p>Tax: ${tax}</p>
