@@ -14,9 +14,9 @@ const Shop = () => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
+
   useEffect(() => {
     const storedCart = getStoredCart();
-    // console.log(storedCart);
     const savedProduct = [];
     for (const id in storedCart) {
       const addedProduct = products.find((product) => product.id === id);
