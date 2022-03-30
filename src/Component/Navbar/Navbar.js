@@ -1,15 +1,16 @@
 import React from "react";
 import "./Navbar.css";
 import logo from "../../images/Logo.svg";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-dark custom-navbar">
         <div className="container">
-          <a className="navbar-brand" href="#">
+          <Link to="/">
             <img src={logo} alt="" />
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"
@@ -23,25 +24,18 @@ const Navbar = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Home
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/products">
-                  Products
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link">Order</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link">Inventory</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link">About</a>
-              </li>
+              <Link className="me-3 nav-item" to="/shop">
+                Shop
+              </Link>
+              <Link className="me-3 nav-item" to="/orders">
+                Order
+              </Link>
+              <Link className="me-3 nav-item" to="/inventory">
+                Inventory
+              </Link>
+              <Link className="nav-item" to="/about">
+                About
+              </Link>
             </ul>
           </div>
         </div>
