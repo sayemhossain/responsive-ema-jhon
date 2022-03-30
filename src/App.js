@@ -1,5 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.js";
 import Navbar from "./Component/Navbar/Navbar";
 import Shop from "./Component/Shop/Shop";
 
