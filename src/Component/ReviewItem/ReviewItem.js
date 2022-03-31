@@ -17,7 +17,10 @@ const ReviewItem = ({ product, handleRemoveProduct }) => {
               Price: <span className="text-danger">${product.price}</span>
             </p>
             <p className="my-0">
-              <small>Quantity: {product.quantity}</small>
+              <small>
+                Quantity:{" "}
+                <span className="text-danger">{product.quantity}</span>
+              </small>
             </p>
           </div>
         </div>

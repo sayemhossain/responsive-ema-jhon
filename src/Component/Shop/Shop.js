@@ -6,6 +6,8 @@ import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
 import { deleteShoppingCart } from "../../utilities/fakedb";
+import { Link } from "react-router-dom";
+import { Button } from "bootstrap";
 
 const Shop = () => {
   const [products, setProducts] = useProducts();
@@ -48,11 +50,9 @@ const Shop = () => {
           <h5 className="cart-header text-center mt-4 text-uppercase">
             Order Summary
           </h5>
-          <Cart
-            key={cart.id}
-            cart={cart}
-            handleDeleteBtn={handleDeleteBtn}
-          ></Cart>
+          <Cart key={cart.id} cart={cart} handleDeleteBtn={handleDeleteBtn}>
+            <Link to="/orders">Review Order</Link>
+          </Cart>
         </div>
       </div>
     </div>

@@ -31,7 +31,7 @@ const Cart = (props) => {
       <div onClick={props.handleDeleteBtn} className="btn btn-one">
         Clear Cart
       </div>
-      <div className="btn btn-two">Review Order</div>
+      <div className="btn btn-two">{props.children}</div>
     </div>
   );
 };

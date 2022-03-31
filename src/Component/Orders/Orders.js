@@ -5,6 +5,7 @@ import Cart from "../Cart/Cart";
 import ReviewItem from "../ReviewItem/ReviewItem";
 import "./Orders.css";
 import { removeFromDb } from "../../utilities/fakedb";
+import { Link } from "react-router-dom";
 
 const Orders = () => {
   const [products, setProducts] = useProducts();
@@ -27,7 +28,7 @@ const Orders = () => {
         ))}
       </div>
       <div className="cart-container">
-        <Cart cart={cart}></Cart>
+        <Cart cart={cart}>Proceed Checkout</Cart>
       </div>
     </div>
   );
