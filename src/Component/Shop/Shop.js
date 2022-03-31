@@ -1,29 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import useCart from "../../hooks/useCart";
 import useProducts from "../../hooks/useProducts";
-import { addToDb, getStoredCart } from "../../utilities/fakedb";
+import { addToDb } from "../../utilities/fakedb";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
+import { deleteShoppingCart } from "../../utilities/fakedb";
 
 const Shop = () => {
   const [products, setProducts] = useProducts();
-  const [cart, setCart] = useState([]);
-
-  //   fetching data form database
-
-  useEffect(() => {
-    const storedCart = getStoredCart();
-    const savedProduct = [];
-    for (const id in storedCart) {
-      const addedProduct = products.find((product) => product.id === id);
-      if (addedProduct) {
-        const quantity = storedCart[id];
-        addedProduct.quantity = quantity;
-        savedProduct.push(addedProduct);
-      }
-    }
-    setCart(savedProduct);
-  }, [products]);
+  const [cart, setCart] = useCart(products);
 
   const handleAddToCart = (selectedProduct) => {
     let newCart = [];
@@ -38,6 +24,12 @@ const Shop = () => {
     }
     setCart(newCart);
     addToDb(selectedProduct.id);
+  };
+
+  // this is clear cart and also remove cart from localStorage
+  const handleDeleteBtn = () => {
+    deleteShoppingCart();
+    setCart([]);
   };
 
   return (
@@ -56,7 +48,11 @@ const Shop = () => {
           <h5 className="cart-header text-center mt-4 text-uppercase">
             Order Summary
           </h5>
-          <Cart key={cart.id} cart={cart}></Cart>
+          <Cart
+            key={cart.id}
+            cart={cart}
+            handleDeleteBtn={handleDeleteBtn}
+          ></Cart>
         </div>
       </div>
     </div>

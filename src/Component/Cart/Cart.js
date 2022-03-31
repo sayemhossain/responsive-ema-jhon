@@ -28,7 +28,9 @@ const Cart = (props) => {
       <p>Total Shipping Charge: ${shippingCost}</p>
       <p>Tax: ${tax}</p>
       <h4>Grand Total: ${grandTotal}</h4>
-      <div className="btn btn-one">Clear Cart</div>
+      <div onClick={props.handleDeleteBtn} className="btn btn-one">
+        Clear Cart
+      </div>
       <div className="btn btn-two">Review Order</div>
     </div>
   );
