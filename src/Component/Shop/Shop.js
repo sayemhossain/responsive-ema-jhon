@@ -52,7 +52,7 @@ const Shop = () => {
           </h5>
           <Cart key={cart.id} cart={cart} handleDeleteBtn={handleDeleteBtn}>
             <Link className="review-order" to="/orders">
-              Revie Order
+              Review Order
             </Link>
           </Cart>
         </div>
