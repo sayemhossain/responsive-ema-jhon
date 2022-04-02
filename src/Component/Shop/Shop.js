@@ -7,7 +7,6 @@ import Product from "../Product/Product";
 import "./Shop.css";
 import { deleteShoppingCart } from "../../utilities/fakedb";
 import { Link } from "react-router-dom";
-import { Button } from "bootstrap";
 
 const Shop = () => {
   const [products, setProducts] = useProducts();
