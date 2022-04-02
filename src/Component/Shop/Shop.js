@@ -51,7 +51,9 @@ const Shop = () => {
             Order Summary
           </h5>
           <Cart key={cart.id} cart={cart} handleDeleteBtn={handleDeleteBtn}>
-            <Link to="/orders">Review Order</Link>
+            <Link className="review-order" to="/orders">
+              Revie Order
+            </Link>
           </Cart>
         </div>
       </div>
