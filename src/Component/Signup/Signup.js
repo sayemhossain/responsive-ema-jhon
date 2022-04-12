@@ -10,40 +10,47 @@ const Signup = () => {
         <div className="row p-5">
           <div className="col-lg-4 col-md-4"></div>
           <div className="col-12 col-md-4 p-4 sign-up px-5">
-            <h3 className="text-center">Sign Up</h3>
-            <div class="col-12">
-              <label for="inputEmail4" class="form-label">
-                Email
-              </label>
-              <input
-                type="email"
-                class="form-control form-control-sm"
-                id="email"
-              />
-            </div>
-            <div class="col-12 mt-3">
-              <label for="inputPassword4" class="form-label">
-                Password
-              </label>
-              <input
-                type="password"
-                class="form-control form-control-sm"
-                id="password"
-              />
-            </div>
-            <div class="col-12 mt-3">
-              <label for="inputPassword4" class="form-label">
-                Confirm Password
-              </label>
-              <input
-                type="password"
-                class="form-control form-control-sm"
-                id="password"
-              />
-            </div>
-            <div className="col-12 col-md-6 mx-auto mt-4">
-              <button className="btn btn-danger">Sign Up</button>
-            </div>
+            <form>
+              <h3 className="text-center">Sign Up</h3>
+              <div class="col-12">
+                <label for="inputEmail4" class="form-label">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  class="form-control form-control-sm"
+                  id="email"
+                  required
+                />
+              </div>
+              <div class="col-12 mt-3">
+                <label for="inputPassword4" class="form-label">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  class="form-control form-control-sm"
+                  id="password"
+                  required
+                />
+              </div>
+              <div class="col-12 mt-3">
+                <label for="inputPassword4" class="form-label">
+                  Confirm Password
+                </label>
+                <input
+                  type="password"
+                  class="form-control form-control-sm"
+                  id="password"
+                  required
+                />
+              </div>
+              <div className="col-12 col-md-6 mx-auto mt-4">
+                <button type="submit" className="btn btn-danger">
+                  Sign Up
+                </button>
+              </div>
+            </form>
             <p className="text-center mt-2">
               Already have an account?
               <Link className="ms-1 login-link" to="/login">
