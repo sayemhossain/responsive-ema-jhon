@@ -1,9 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Signup.css";
 import googleImg from "../../images/google.svg";
 
 const Signup = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState("");
+
+  // this is for email
+  const handleEmailBlur = (event) => {
+    setEmail(event.target.value);
+  };
+
+  // this is for password
+  const handlePasswordBlur = (event) => {
+    setPassword(event.target.value);
+  };
+
+  // this is for password
+  const handleConfirmPasswordBlur = (event) => {
+    setConfirmPasswordPassword(event.target.value);
+  };
+
   return (
     <div>
       <div className="signUp-form py-2">
@@ -20,6 +40,7 @@ const Signup = () => {
                   type="email"
                   class="form-control form-control-sm"
                   id="email"
+                  onBlur={handleEmailBlur}
                   required
                 />
               </div>
@@ -31,6 +52,7 @@ const Signup = () => {
                   type="password"
                   class="form-control form-control-sm"
                   id="password"
+                  onBlur={handlePasswordBlur}
                   required
                 />
               </div>
@@ -42,6 +64,7 @@ const Signup = () => {
                   type="password"
                   class="form-control form-control-sm"
                   id="password"
+                  onBlur={handleConfirmPasswordBlur}
                   required
                 />
               </div>
