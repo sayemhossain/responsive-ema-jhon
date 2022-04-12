@@ -33,8 +33,11 @@ const Navbar = () => {
               <Link className="me-3 nav-item" to="/inventory">
                 Inventory
               </Link>
-              <Link className="nav-item" to="/about">
+              <Link className="nav-item me-3 " to="/about">
                 About
+              </Link>
+              <Link className="nav-item" to="/login">
+                Login
               </Link>
             </ul>
           </div>
