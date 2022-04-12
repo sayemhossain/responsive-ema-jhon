@@ -29,6 +29,12 @@ const Signup = () => {
     console.log(email);
     console.log(password);
     console.log(confirmPassword);
+    if (password != confirmPassword) {
+      setError("Your password didn't match..!");
+      return;
+    } else {
+      setError("");
+    }
   };
   return (
     <div>
@@ -74,6 +80,7 @@ const Signup = () => {
                   required
                 />
               </div>
+              <p className="text-danger mt-2">{error}</p>
               <div className="col-12 col-md-6 mx-auto mt-4">
                 <button type="submit" className="btn btn-danger">
                   Sign Up
