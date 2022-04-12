@@ -21,16 +21,22 @@ const Signup = () => {
 
   // this is for password
   const handleConfirmPasswordBlur = (event) => {
-    setConfirmPasswordPassword(event.target.value);
+    setConfirmPassword(event.target.value);
   };
 
+  const handleCreateUser = (event) => {
+    event.preventDefault();
+    console.log(email);
+    console.log(password);
+    console.log(confirmPassword);
+  };
   return (
     <div>
       <div className="signUp-form py-2">
         <div className="row p-5">
           <div className="col-lg-4 col-md-4"></div>
           <div className="col-12 col-md-4 p-4 sign-up px-5">
-            <form>
+            <form onSubmit={handleCreateUser}>
               <h3 className="text-center">Sign Up</h3>
               <div class="col-12">
                 <label for="inputEmail4" class="form-label">
