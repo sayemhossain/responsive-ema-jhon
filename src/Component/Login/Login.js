@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
+import googleImg from "../../images/google.svg";
 
 const Login = () => {
   return (
@@ -44,7 +45,9 @@ const Login = () => {
               <hr className="w-50" />
             </div>
             <div className="text-center w-100">
-              <button className="btn">Continue with Google</button>
+              <button className="btn">
+                <img src={googleImg} alt="" /> Continue with Google
+              </button>
             </div>
           </div>
           <div className="col-md-4"></div>
