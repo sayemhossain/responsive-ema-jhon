@@ -36,7 +36,7 @@ const Login = () => {
             </div>
             <p className="text-center mt-2">
               New to Ema-john?
-              <Link className="ms-1 text-danger" to="/signup">
+              <Link className="ms-1 signup-link" to="/signup">
                 Create New Account
               </Link>
             </p>
