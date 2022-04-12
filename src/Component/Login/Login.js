@@ -7,7 +7,7 @@ const Login = () => {
     <div>
       <div className=" my-2">
         <div className="row p-5">
-          <div className="col-lg-4"></div>
+          <div className="col-md-4"></div>
           <div className="col-12 col-md-4 p-5 login px-5">
             <h3 className="text-center">Login</h3>
             <div class="col-12">
@@ -47,7 +47,7 @@ const Login = () => {
               <button className="btn">Continue with Google</button>
             </div>
           </div>
-          <div className="col-lg-4"></div>
+          <div className="col-md-4"></div>
         </div>
       </div>
     </div>

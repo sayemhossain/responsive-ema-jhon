@@ -7,7 +7,7 @@ const Signup = () => {
     <div>
       <div className="signUp-form py-2">
         <div className="row p-5">
-          <div className="col-lg-4"></div>
+          <div className="col-lg-4 col-md-4"></div>
           <div className="col-12 col-md-4 p-4 sign-up px-5">
             <h3 className="text-center">Sign Up</h3>
             <div class="col-12">
@@ -57,7 +57,7 @@ const Signup = () => {
               <button className="btn">Continue with Google</button>
             </div>
           </div>
-          <div className="col-lg-4"></div>
+          <div className="col-md-4"></div>
         </div>
       </div>
     </div>
