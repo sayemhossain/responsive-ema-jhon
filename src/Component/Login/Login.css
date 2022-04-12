@@ -1,4 +1,8 @@
 .login {
-  box-shadow: 10px 10px 15px #adb7c2, -10px -10px 15px #afb7c0;
+  box-shadow: 10px 10px 15px #cbced1, -10px -10px 15px #cbced1;
   border-radius: 10px;
+}
+.login input {
+  box-shadow: inset 8px 8px 15px #f1f2f3,
+    inset -8px -8px 15px rgb(253, 250, 250);
 }

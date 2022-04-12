@@ -5,7 +5,7 @@ import "./Signup.css";
 const Signup = () => {
   return (
     <div>
-      <div className="signUp-form my-2">
+      <div className="signUp-form py-2">
         <div className="row p-5">
           <div className="col-lg-4"></div>
           <div className="col-12 col-md-4 p-4 sign-up px-5">
