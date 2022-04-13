@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Signup.css";
 import googleImg from "../../images/google.svg";
 import { auth } from "../../firebase.init";
@@ -10,9 +10,10 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   // this is for create user email and pass
-  const [createUserWithEmailAndPassword] =
+  const [createUserWithEmailAndPassword, user] =
     useCreateUserWithEmailAndPassword(auth);
 
   // this is for email
@@ -44,6 +45,11 @@ const Signup = () => {
       setError("");
     }
   };
+
+  // if user can find then go to landing page by using useNavigat
+  if (user) {
+    navigate("/");
+  }
 
   return (
     <div>
