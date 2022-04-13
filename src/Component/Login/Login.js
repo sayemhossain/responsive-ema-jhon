@@ -1,16 +1,44 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import googleImg from "../../images/google.svg";
+import { useState } from "react";
+import { auth } from "../../firebase.init";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const navigate = useNavigate();
+
+  // this is for email
+  const handleEmail = (event) => {
+    setEmail(event.target.value);
+  };
+
+  // this is for password
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
+  };
+
+  // this is for form submit
+  const handleUserSignIn = (event) => {
+    event.preventDefault();
+    signInWithEmailAndPassword(email, password);
+  };
+
+  if (user) {
+    navigate("/orders");
+  }
   return (
     <div>
       <div className=" my-2">
         <div className="row p-5">
           <div className="col-md-4"></div>
           <div className="col-12 col-md-4 p-5 login px-5">
-            <form>
+            <form onSubmit={handleUserSignIn}>
               <h3 className="text-center">Login</h3>
               <div className="col-12">
                 <label for="inputEmail4" className="form-label">
@@ -20,6 +48,7 @@ const Login = () => {
                   type="email"
                   className="form-control form-control-sm"
                   id="email"
+                  onBlur={handleEmail}
                   required
                 />
               </div>
@@ -31,11 +60,15 @@ const Login = () => {
                   type="password"
                   className="form-control form-control-sm"
                   id="password"
+                  onBlur={handlePassword}
                   required
                 />
               </div>
+              <p>{error?.message}</p>
               <div className="col-12 col-md-6 mx-auto mt-4">
-                <button className="btn btn-danger">Login</button>
+                <button type="submit" className="btn btn-danger">
+                  Login
+                </button>
               </div>
             </form>
             <p className="text-center mt-2">
