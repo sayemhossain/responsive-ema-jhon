@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Signup.css";
 import googleImg from "../../images/google.svg";
 import { auth } from "../../firebase.init";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -10,7 +11,9 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const [createUserWithEmailAndPassword] = createUserWithEmailAndPassword(auth);
+  // this is for create user email and pass
+  const [createUserWithEmailAndPassword] =
+    useCreateUserWithEmailAndPassword(auth);
 
   // this is for email
   const handleEmailBlur = (event) => {
@@ -29,9 +32,6 @@ const Signup = () => {
 
   const handleCreateUser = (event) => {
     event.preventDefault();
-    console.log(email);
-    console.log(password);
-    console.log(confirmPassword);
     if (password != confirmPassword) {
       setError("Your password didn't match..!");
       return;
@@ -40,6 +40,7 @@ const Signup = () => {
       setError("Password must be 6 characters");
       return;
     } else {
+      createUserWithEmailAndPassword(email, password);
       setError("");
     }
   };
@@ -52,37 +53,37 @@ const Signup = () => {
           <div className="col-12 col-md-4 p-4 sign-up px-5">
             <form onSubmit={handleCreateUser}>
               <h3 className="text-center">Sign Up</h3>
-              <div class="col-12">
-                <label for="inputEmail4" class="form-label">
+              <div className="col-12">
+                <label for="inputEmail4" className="form-label">
                   Email
                 </label>
                 <input
                   type="email"
-                  class="form-control form-control-sm"
+                  className="form-control form-control-sm"
                   id="email"
                   onBlur={handleEmailBlur}
                   required
                 />
               </div>
-              <div class="col-12 mt-3">
-                <label for="inputPassword4" class="form-label">
+              <div className="col-12 mt-3">
+                <label for="inputPassword4" className="form-label">
                   Password
                 </label>
                 <input
                   type="password"
-                  class="form-control form-control-sm"
+                  className="form-control form-control-sm"
                   id="password"
                   onBlur={handlePasswordBlur}
                   required
                 />
               </div>
-              <div class="col-12 mt-3">
-                <label for="inputPassword4" class="form-label">
+              <div className="col-12 mt-3">
+                <label for="inputPassword4" className="form-label">
                   Confirm Password
                 </label>
                 <input
                   type="password"
-                  class="form-control form-control-sm"
+                  className="form-control form-control-sm"
                   id="password"
                   onBlur={handleConfirmPasswordBlur}
                   required

@@ -12,24 +12,24 @@ const Login = () => {
           <div className="col-12 col-md-4 p-5 login px-5">
             <form>
               <h3 className="text-center">Login</h3>
-              <div class="col-12">
-                <label for="inputEmail4" class="form-label">
+              <div className="col-12">
+                <label for="inputEmail4" className="form-label">
                   Email
                 </label>
                 <input
                   type="email"
-                  class="form-control form-control-sm"
+                  className="form-control form-control-sm"
                   id="email"
                   required
                 />
               </div>
-              <div class="col-12 mt-3">
-                <label for="inputPassword4" class="form-label">
+              <div className="col-12 mt-3">
+                <label for="inputPassword4" className="form-label">
                   Password
                 </label>
                 <input
                   type="password"
-                  class="form-control form-control-sm"
+                  className="form-control form-control-sm"
                   id="password"
                   required
                 />
