@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./Login.css";
 import googleImg from "../../images/google.svg";
 import { useState } from "react";
@@ -12,7 +12,8 @@ const Login = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   // this is for email
   const handleEmail = (event) => {
     setEmail(event.target.value);
@@ -30,7 +31,7 @@ const Login = () => {
   };
 
   if (user) {
-    navigate("/orders");
+    navigate(from, { replace: true });
   }
   return (
     <div>
