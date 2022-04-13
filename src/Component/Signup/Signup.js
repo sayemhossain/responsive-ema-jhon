@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Signup.css";
 import googleImg from "../../images/google.svg";
+import { auth } from "../../firebase.init";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
+
+  const [createUserWithEmailAndPassword] = createUserWithEmailAndPassword(auth);
 
   // this is for email
   const handleEmailBlur = (event) => {
@@ -32,10 +35,15 @@ const Signup = () => {
     if (password != confirmPassword) {
       setError("Your password didn't match..!");
       return;
+    }
+    if (password.length < 6) {
+      setError("Password must be 6 characters");
+      return;
     } else {
       setError("");
     }
   };
+
   return (
     <div>
       <div className="signUp-form py-2">
