@@ -64,7 +64,8 @@ const Login = () => {
                   required
                 />
               </div>
-              <p>{error?.message}</p>
+              <p className="mt-2 text-danger">{error?.message}</p>
+              {loading && <p className="text-success">Loading...</p>}
               <div className="col-12 col-md-6 mx-auto mt-4">
                 <button type="submit" className="btn btn-danger">
                   Login
