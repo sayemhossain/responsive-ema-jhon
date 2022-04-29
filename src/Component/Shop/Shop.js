@@ -39,7 +39,7 @@ const Shop = () => {
         <div className=" product-container mx-auto">
           {products.map((product) => (
             <Product
-              key={product.id}
+              key={product._id}
               product={product}
               handleAddToCart={() => handleAddToCart(product)}
             ></Product>
