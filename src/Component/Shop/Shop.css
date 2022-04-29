@@ -19,8 +19,17 @@
   }
 }
 @media screen and (max-width: 600px) {
+  .shop-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .cart-container {
+    order: 1;
+  }
+
   .product-container {
     grid-template-columns: repeat(1, 1fr);
     margin: 10px 5px;
+    order: 2;
   }
 }
