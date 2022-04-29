@@ -29,3 +29,8 @@
   padding: 15px;
   border-radius: 25px;
 }
+@media screen and (max-width: 600px) {
+  .review-item {
+    width: 331px;
+  }
+}
