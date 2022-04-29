@@ -31,4 +31,8 @@
   .card {
     width: 22rem;
   }
+  .card img {
+    width: 330px;
+    border-radius: 8px;
+  }
 }
