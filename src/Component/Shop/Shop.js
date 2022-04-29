@@ -36,7 +36,7 @@ const Shop = () => {
   return (
     <div className="container-fluid">
       <div className="shop-container">
-        <div className=" product-container">
+        <div className=" product-container mx-auto">
           {products.map((product) => (
             <Product
               key={product.id}
