@@ -10,11 +10,17 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const Shop = () => {
-  const [products, setProducts] = useProducts();
+  const [products, setProducts] = useState([]);
   const [cart, setCart] = useCart(products);
   const [pageCount, setPageCount] = useState(0);
   const [page, setPage] = useState(0);
+  const [size, setSize] = useState(9);
 
+  useEffect(() => {
+    fetch(`http://localhost:5000/product?page=${page}&size=${size}`)
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, [page, size]);
   // this is for pagination
   useEffect(() => {
     fetch("http://localhost:5000/productCount")
@@ -63,9 +69,17 @@ const Shop = () => {
                 className={page == number ? "selected" : ""}
                 onClick={() => setPage(number)}
               >
-                {number}
+                {number + 1}
               </button>
             ))}
+            <select onChange={(e) => setSize(e.target.value)}>
+              <option value="9" selected>
+                9
+              </option>
+              <option value="12">12</option>
+              <option value="15">15</option>
+              <option value="21">21</option>
+            </select>
           </div>
         </div>
         <div className="cart-container">
