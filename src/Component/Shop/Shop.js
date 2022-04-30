@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useCart from "../../hooks/useCart";
 import useProducts from "../../hooks/useProducts";
 import { addToDb } from "../../utilities/fakedb";
@@ -7,11 +7,24 @@ import Product from "../Product/Product";
 import "./Shop.css";
 import { deleteShoppingCart } from "../../utilities/fakedb";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Shop = () => {
   const [products, setProducts] = useProducts();
   const [cart, setCart] = useCart(products);
+  const [pageCount, setPageCount] = useState(0);
+  const [page, setPage] = useState(0);
 
+  // this is for pagination
+  useEffect(() => {
+    fetch("http://localhost:5000/productCount")
+      .then((res) => res.json())
+      .then((data) => {
+        const count = data.count;
+        const pages = Math.ceil(count / 10);
+        setPageCount(pages);
+      });
+  }, []);
   const handleAddToCart = (selectedProduct) => {
     let newCart = [];
     const exists = cart.find((product) => product._id === selectedProduct._id);
@@ -44,6 +57,16 @@ const Shop = () => {
               handleAddToCart={() => handleAddToCart(product)}
             ></Product>
           ))}
+          <div className="pagination">
+            {[...Array(pageCount).keys()].map((number) => (
+              <button
+                className={page == number ? "selected" : ""}
+                onClick={() => setPage(number)}
+              >
+                {number}
+              </button>
+            ))}
+          </div>
         </div>
         <div className="cart-container">
           <h5 className="cart-header text-center mt-4 text-uppercase">
