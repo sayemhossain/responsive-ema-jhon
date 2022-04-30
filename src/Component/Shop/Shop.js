@@ -14,17 +14,17 @@ const Shop = () => {
 
   const handleAddToCart = (selectedProduct) => {
     let newCart = [];
-    const exists = cart.find((product) => product.id === selectedProduct.id);
+    const exists = cart.find((product) => product._id === selectedProduct._id);
     if (!exists) {
       selectedProduct.quantity = 1;
       newCart = [...cart, selectedProduct];
     } else {
-      const rest = cart.filter((product) => product.id != selectedProduct.id);
+      const rest = cart.filter((product) => product._id != selectedProduct._id);
       exists.quantity += 1;
       newCart = [...rest, exists];
     }
     setCart(newCart);
-    addToDb(selectedProduct.id);
+    addToDb(selectedProduct._id);
   };
 
   // this is clear cart and also remove cart from localStorage
@@ -49,7 +49,7 @@ const Shop = () => {
           <h5 className="cart-header text-center mt-4 text-uppercase">
             Order Summary
           </h5>
-          <Cart key={cart.id} cart={cart} handleDeleteBtn={handleDeleteBtn}>
+          <Cart key={cart._id} cart={cart} handleDeleteBtn={handleDeleteBtn}>
             <Link className="review-order" to="/orders">
               Review Order
             </Link>
